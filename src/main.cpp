@@ -140,7 +140,7 @@ void scanSoilAndMoveServo() {
           Serial.println("Wet bin is full."); // Tampilkan pesan status
         }
         myServo.write(servoWetPosition); // Gerakkan servo ke posisi basah
-        sendCombinedTelemetry(moisturePercentage + 50, "Wet Waste", wetCount, dryCount, latitude, longitude, binName); // Kirim data ke ThingsBoard
+        sendCombinedTelemetry(moisturePercentage + 40, "Wet Waste", wetCount, dryCount, latitude, longitude, binName); // Kirim data ke ThingsBoard
       }
     } else if (!dryFull && soilMoistureValue >= soilThreshold) { // Periksa jika tempat sampah kering tidak penuh
       if (currentMillis - lastDetected >= detectionInterval) { // Stabilkan pendeteksian
@@ -152,7 +152,7 @@ void scanSoilAndMoveServo() {
           Serial.println("Dry bin is full."); // Tampilkan pesan status
         }
         myServo.write(servoDryPosition); // Gerakkan servo ke posisi kering
-        sendCombinedTelemetry(moisturePercentage + 50, "Dry Waste", wetCount, dryCount, latitude, longitude, binName); // Kirim data ke ThingsBoard
+        sendCombinedTelemetry(moisturePercentage + 40, "Dry Waste", wetCount, dryCount, latitude, longitude, binName); // Kirim data ke ThingsBoard
       }
     }
 
